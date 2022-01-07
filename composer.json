@@ -15,7 +15,6 @@
     }
   ],
   "require": {
-    "ext-xml": "*",
     "php": "^7.4 || ^8.0",
     "laminas/laminas-validator": "^2.15"
   },
