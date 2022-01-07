@@ -1,0 +1,38 @@
+{
+  "name": "pragaonj/laminas-password-validator",
+  "description": "Laminas validator for character-set based password validation.",
+  "type": "library",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "laminas",
+    "password",
+    "validator"
+  ],
+  "authors": [
+    {
+      "name": "pragaonj",
+      "email": "pragaonj@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-xml": "*",
+    "php": "^7.4 || ^8.0",
+    "laminas/laminas-validator": "^2.15"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pragaonj\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PragaonjTest\\": "test/"
+    }
+  },
+  "scripts": {
+    "test": "php vendor/bin/phpunit"
+  }
+}
