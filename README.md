@@ -15,7 +15,11 @@ The password validator implements laminas `Laminas\Validator\ValidatorInterface`
 - `numberOfRequiredCharacterSets`
   the number of considered character-sets that need to be present in the password.
 
+### General usage
+
 ```php
+use Pragaonj\Validator\PasswordValidator;
+
 $validator = new PasswordValidator([
     "characterSets" => 
     [
@@ -35,6 +39,8 @@ $messages = $validator->getMessages();
 To overwrite the default error message you can set the messageTemplate for `msgNotEnoughCharacterSets`.
 
 ```php
+use Pragaonj\Validator\PasswordValidator;
+
 $validator = new PasswordValidator([
     "characterSets" => 
     [
@@ -43,7 +49,7 @@ $validator = new PasswordValidator([
         PasswordValidator::CAPITAL_LETTER,
         PasswordValidator::DIGIT,
     ],
-    "numberOfRequiredCharacterSets" => 4,
+    "numberOfRequiredCharacterSets" => 3,
     "messageTemplates" => [
         PasswordValidator::MSG_NOTENOUGHCHARACTARSETS => "my custom error message"
     ]
@@ -53,4 +59,23 @@ $valid = $validator->isValid("myInsecurePassword");
 
 $messages = $validator->getMessages();
 // will return ["msgNotEnoughCharacterSets" => "my custom error message"]
+```
+
+### Usage in laminas-mvc application
+
+To use the validator in a laminas-mvc application register it as invokable in your `module.config.php`.
+
+```php
+use Pragaonj\Validator\PasswordValidator;
+
+return [
+  'validators' => [
+    'invokables' => [
+        PasswordValidator::class,
+    ],
+    "aliases" => [
+        "PasswordValidator" => PasswordValidator::class,
+    ]
+  ],
+];
 ```

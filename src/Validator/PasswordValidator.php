@@ -22,7 +22,7 @@ class PasswordValidator extends AbstractValidator
 
 
     protected $messageTemplates = [
-        self::MSG_NOTENOUGHCHARACTARSETS => 'The password does not contain enough character sets',
+        self::MSG_NOTENOUGHCHARACTARSETS => 'The password does not contain enough character sets.',
     ];
 
     /**
